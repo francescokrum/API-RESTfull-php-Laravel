@@ -16,7 +16,6 @@ class LivroResource extends JsonResource
     public function toArray(Request $request): array
     {
         return [
-
             'identify'=> $this->id,
             'titulo'=> $this->titulo,
             'autor'=> $this->autor,
