@@ -1,9 +1,8 @@
-export interface Livro{
-
-    id?: number,
-    titulo: string,
-    autor: string,
-    classificacao: number,
-    resenha: Text,
-    dataCadastro: Date 
-}
+export interface Livro {
+    identify: number;
+    titulo: string;
+    autor: string;
+    classificacao: number;
+    resenha: string;
+    dataCadastro: any;
+  }

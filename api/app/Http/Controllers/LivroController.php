@@ -8,8 +8,6 @@ use Illuminate\Http\Request;
 use App\Models\Livro;
 use App\Http\Requests\CadastroEdicaoLivroRequest;
 
-header('Access-Control-Allow-Origin: http://localhost:4200');
-
 class LivroController extends Controller
 {
     public function index(){
@@ -21,11 +19,11 @@ class LivroController extends Controller
 
     public function cadastroLivro(CadastroEdicaoLivroRequest $request){
 
-        $dados = $request->validated();
+        $dados = $request->all();
 
         $livro = Livro::create($dados);
 
-        return new LivroResource($livro);
+        return new $livro;
     }
 
     public function listarLivro(int $id){
