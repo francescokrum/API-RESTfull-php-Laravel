@@ -62,4 +62,30 @@ export class AppComponent {
   deletarLivro(identify: number){
     this.livroService.deletarLivro(identify).subscribe(_ => this.buscarLivrosCadastrados());
   }
+
+  nextPage() {
+    if (this.currentPage < this.totalPages) {
+      this.currentPage++;
+      this.totalPages++;
+      this.loadPage(this.currentPage);
+    }
+  }
+
+  loadPage(page: number) {
+    this.livroService.getPaginatedData(page).subscribe((data: any) => {
+      this.data = data.data;
+      this.livros = data.data;
+      this.totalPages = this.currentPage + 1;
+    });
+  }
+
+  lastPage(){
+    if (this.currentPage < this.totalPages) {
+      this.currentPage--;
+      if(this.currentPage == 0){
+        this.currentPage++;
+      }
+      this.loadPage(this.currentPage);
+    }
+  }
 }
