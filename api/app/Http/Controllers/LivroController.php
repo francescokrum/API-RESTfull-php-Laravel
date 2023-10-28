@@ -10,9 +10,13 @@ use App\Http\Requests\CadastroEdicaoLivroRequest;
 
 class LivroController extends Controller
 {
-    public function index(){
+    public function index(Request $request){
 
-        $livros = Livro::all();
+        $porPagina = 5;
+
+        $pagina = $request->input('page', 1);
+
+        $livros = Livro::paginate($porPagina, ['*'], 'page', $pagina);
 
         return LivroResource::collection($livros);
     }
