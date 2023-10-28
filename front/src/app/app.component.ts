@@ -31,16 +31,6 @@ export class AppComponent {
     });
   }
 
-  /*cadastrarLivro() {
-    this.livroService.cadastrarLivro({ titulo: this.titulo, autor: this.autor, classificacao: this.classificacao, resenha: this.resenha, dataCadastro: this.dataCadastro })
-    .subscribe((res: any) => {
-      console.log('Livro inserido com sucesso:', res.data);
-      return this.buscarLivrosCadastrados();
-    }, (error) => {
-        console.error('Erro ao realizar a inserção:', error);
-    });
-  }*/
-
   buttonClick(){
     if (!this.titulo || !this.autor || !this.classificacao || !this.resenha || !this.dataCadastro)
       return;
@@ -54,8 +44,6 @@ export class AppComponent {
       .subscribe(_ => this.buscarLivrosCadastrados())
   }
 
-
-
   preencherCampos(livro: Livro){
 
     this.identify = livro.identify!.toString();
@@ -65,13 +53,6 @@ export class AppComponent {
     this.resenha = livro.resenha;
     this.dataCadastro = livro.dataCadastro
   }
-
-  /*editarLivro(){
-
-    this.livroService.editarLivro({titulo: this.titulo, autor: this.autor, classificacao: this.classificacao, resenha: this.resenha, dataCadastro: this.dataCadastro})
-    .subscribe(_=> this.buscarLivrosCadastrados());
-
-  }*/
 
   editarLivro(){
     this.livroService.editarLivro({identify: parseInt(this.identify), titulo: this.titulo, autor: this.autor, classificacao: parseInt(this.classificacao), resenha: this.resenha, dataCadastro: this.dataCadastro})
