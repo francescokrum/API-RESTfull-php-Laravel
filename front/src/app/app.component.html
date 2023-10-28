@@ -27,6 +27,7 @@
 
 <body>
 
+  
   <form>
     <div>
       <label>Título:</label>
@@ -52,6 +53,7 @@
       {{ identify ? 'Salvar' : 'Adicionar'}}
     </button>
   </form>
+  <div class="container">
   <table>
     <thead>
       <th>ID</th>
@@ -77,6 +79,7 @@
 
     </tbody>
   </table>
+  </div>
   <button (click)="nextPage()">Próxima Página</button>
   <button (click)="lastPage()">Página Anterior</button>
 </body>
