@@ -39,4 +39,9 @@ export class LivroService{
 
     }
 
+  getPaginatedData(page: number): Observable<any> {
+
+        return this.httpClient.get<Livro[]>(`${this.url}?page=${page}`);
+      }
+
 }
